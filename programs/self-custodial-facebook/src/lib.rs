@@ -34,7 +34,7 @@ pub mod self_custodial_facebook {
         Ok(())
     }
 
-    pub fn update_status(ctx: Constext<Update>, new_status: String) -> Result<()> {
+    pub fn update_status(ctx: Context<Update>, new_status: String) -> Result<()> {
         // update user status, much like whatsapp 24 hr status without self destruction
         msg!(
             "Updating the status from {0} to {1}",
@@ -44,6 +44,25 @@ pub mod self_custodial_facebook {
         ctx.accounts.facebook_account.status = new_status;
         Ok(())
     }
+
+    pub fn delete_account(ctx: Context<Close>) -> Result<()> {
+        msg!("Account Closed successfully");
+        Ok(())
+    }
+}
+
+#[derive(Accounts)]
+pub struct Close<'info> {
+    #[account(mut)]
+    pub signer: Signer<'info>,
+    // we will use 'close' to close user's facebook account
+    #[account(
+        mut,
+        seeds = ["self-custodial-facebook".as_bytes(), signer.key().as_ref()],
+        bump = facebook_account.bump,
+        close = signer
+    )]
+    pub facebook_account: Account<'info, FacebookAccount>,
 }
 
 #[derive(Accounts)]

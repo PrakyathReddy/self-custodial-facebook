@@ -1,5 +1,5 @@
 [features]
-seeds = false
+seeds = true
 skip-lint = false
 [programs.localnet]
 self_custodial_facebook = "FL9dfffqMRqKBmiRMSYhtHG1MGT6SXKczYpqz6yXjurG"

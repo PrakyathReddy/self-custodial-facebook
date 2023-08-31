@@ -7,3 +7,4 @@ Instructions
 - here we create a new account for each user using PDAs
 - every 'facebook_account' is a PDA with seeds that includes their 'WALLET_ADDRESS' and 'CONSTANT_PREFIX'
 - the 'update_status' instrcution allows user to update their status
+- the third instruction will allow users to close their account
