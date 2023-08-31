@@ -1,4 +1,4 @@
-import * as anchor from "@coral-xyz/anchor";
+git remote add origin https://github.com/PrakyathReddy/self-custodial-facebook.gitimport * as anchor from "@coral-xyz/anchor";
 import { Program } from "@coral-xyz/anchor";
 import { SelfCustodialFacebook } from "../target/types/self_custodial_facebook";
 
